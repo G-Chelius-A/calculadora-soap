@@ -9,14 +9,16 @@ Por: Gerardo Yeray Chelius Altamirano | 7°B Ingeniería en Sistemas Computacion
    ```powershell
    python -m venv venv
    ```
-3. Activar el entorno virtual en Windows PowerShell:
-   ```powershell
-   .\venv\Scripts\Activate.ps1
-   ```
-   En el símbolo del sistema (CMD), usar:
+3. Activar el entorno virtual en Windows (CMD), usar:
    ```bat
-   .\venv\Scripts\activate.bat
+   .\venv\Scripts\activate
    ```
+> [!WARNING]
+> En Linux y macOS, debes activar el entorno virtual antes de instalar las dependencias ejecutando:
+> ```bash
+> source venv/bin/activate
+> ```
+
 4. Instalar las dependencias:
    ```powershell
    python -m pip install zeep spyne lxml
