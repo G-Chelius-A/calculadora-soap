@@ -118,9 +118,9 @@ calculadora-soap/
 ### Archivos Python del proyecto
 - `Server.py`: servidor SOAP de la calculadora; publica las operaciones aritméticas en el puerto `8000`.
 - `Cliente.py`: cliente Zeep de la calculadora; invoca las operaciones del servidor.
-- `ServerLibrary.py`: servidor SOAP de la biblioteca; contiene el catálogo y publica consultas en el puerto `8001`.
+- `ServerLibrary.py`: servidor SOAP de la biblioteca; contiene el catálogo y publica consultas en el puerto `8000`.
 - `ClientLibrary.py`: cliente Zeep de la biblioteca; consulta libros, disponibilidad y catálogo.
-- `ServerTienda.py`: servidor SOAP de la tienda; gestiona inventario, registro y consulta de pedidos en el puerto `8002`.
+- `ServerTienda.py`: servidor SOAP de la tienda; gestiona inventario, registro y consulta de pedidos en el puerto `8000`.
 - `ClientTienda.py`: cliente Zeep de la tienda; envía pedidos y prueba distintos casos de consulta y validación.
 
 ### Carpetas y configuración de `venv`
