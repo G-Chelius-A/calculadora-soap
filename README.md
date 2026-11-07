@@ -63,7 +63,7 @@ El servidor consulta un catálogo de libros definido en memoria. Las operaciones
 | `hay_disponibilidad` | `code: Unicode` | `Boolean` |
 | `mostrar_todos` | Sin entrada | `Unicode` |
 
-Si el código consultado no existe, las tres operaciones de consulta por código devuelven un error SOAP. El WSDL está en `http://127.0.0.1:8001/?wsdl`.
+Si el código consultado no existe, las tres operaciones de consulta por código devuelven un error SOAP. El WSDL está en `http://127.0.0.1:8000/?wsdl`.
 
 En una terminal:
 ```powershell
@@ -84,7 +84,7 @@ El servicio procesa pedidos utilizando un inventario en memoria. Cada pedido inc
 | `registrar_pedido` | `Pedido` (`ComplexModel`): `cliente: String`, `linea: Array(LineaPedido)`; `LineaPedido` (`ComplexModel`): `producto: String`, `cantidad: Integer` | `Confirmacion` (`ComplexModel`): `pedido_id: Integer`, `cliente: String`, `total: Float` |
 | `consultar_pedido` | `pedido_id: Integer` | `Confirmacion` y `Pedido` (`ComplexModel`) |
 
-El WSDL está en `http://127.0.0.1:8002/?wsdl`.
+El WSDL está en `http://127.0.0.1:8000/?wsdl`.
 
 En una terminal:
 ```powershell
