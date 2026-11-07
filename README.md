@@ -14,7 +14,7 @@ Por: Gerardo Yeray Chelius Altamirano | 7°B Ingeniería en Sistemas Computacion
    .\venv\Scripts\activate
    ```
 > [!WARNING]
-> En Linux y macOS, debes activar el entorno virtual antes de instalar las dependencias ejecutando:
+> En Linux y macOS, activar el entorno virtual antes de instalar las dependencias ejecutando:
 > ```bash
 > source venv/bin/activate
 > ```
