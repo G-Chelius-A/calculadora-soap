@@ -29,7 +29,7 @@ Por: Gerardo Yeray Chelius Altamirano | 7°B Ingeniería en Sistemas Computacion
    ```
    En otra terminal, activar el entorno virtual y ejecutar el cliente correspondiente. Para detener un servidor, presionar `Ctrl+C`.
 
-Cada actividad utiliza un puerto distinto: calculadora `8000`, biblioteca `8001` y tienda `8002`. El cliente se conecta al WSDL local de su servidor, por lo que primero debe iniciarse el servidor.
+Cada actividad utiliza un mismo puerto: `8000`. El cliente se conecta al WSDL local de su servidor, por lo que primero debe iniciarse el servidor (tomando en cuenta que debe interrumpirse la ejecución de un servidor previo).
 
 ---
 ## Actividad 0: Creación de un servicio web WSDL con Python
