@@ -33,12 +33,12 @@ Cada actividad utiliza un puerto distinto: calculadora `8000`, biblioteca `8001`
 ## Actividad 0: Creación de un servicio web WSDL con Python
 Se implementa una calculadora SOAP con Spyne como servidor y Zeep como cliente. El servicio ofrece las operaciones:
 
-| Operación | Entradas | Salida |
+| Operación | Entradas (tipo Spyne) | Salida (tipo Spyne) |
 |---|---|---|
-| `sumar` | Dos enteros | Entero |
-| `restar` | Dos enteros | Entero |
-| `dividir` | Dos enteros | Entero (división entera) |
-| `multiplicar` | Dos enteros | Entero |
+| `sumar` | `a: Integer`, `b: Integer` | `Integer` |
+| `restar` | `a: Integer`, `b: Integer` | `Integer` |
+| `dividir` | `a: Integer`, `b: Integer` | `Integer` (división entera) |
+| `multiplicar` | `a: Integer`, `b: Integer` | `Integer` |
 
 El servidor publica el WSDL en `http://127.0.0.1:8000/?wsdl`. En una terminal:
 ```powershell
@@ -54,12 +54,12 @@ El cliente prueba las cuatro operaciones y muestra el error cuando se intenta di
 ## Actividad 1: Consulta de una biblioteca
 El servidor consulta un catálogo de libros definido en memoria. Las operaciones SOAP son:
 
-| Operación | Entrada | Salida |
+| Operación | Entrada (tipo Spyne) | Salida (tipo Spyne) |
 |---|---|---|
-| `buscar_titulo` | Código del libro (`String`) | Título (`String`) |
-| `ejemplares_disponibles` | Código del libro (`String`) | Cantidad (`Integer`) |
-| `hay_disponibilidad` | Código del libro (`String`) | Disponibilidad (`Boolean`) |
-| `mostrar_todos` | Sin entrada | Catálogo en texto (`String`) |
+| `buscar_titulo` | `code: Unicode` | `Unicode` |
+| `ejemplares_disponibles` | `code: Unicode` | `Integer` |
+| `hay_disponibilidad` | `code: Unicode` | `Boolean` |
+| `mostrar_todos` | Sin entrada | `Unicode` |
 
 Si el código consultado no existe, las tres operaciones de consulta por código devuelven un error SOAP. El WSDL está en `http://127.0.0.1:8001/?wsdl`.
 
@@ -77,10 +77,10 @@ El cliente prueba consultas existentes e inexistentes y solicita el catálogo co
 ## Actividad 2: Servicio web de una tienda
 El servicio procesa pedidos utilizando un inventario en memoria. Cada pedido incluye un cliente y una o más líneas con el código de producto y la cantidad. El servidor comprueba que los productos existan y que haya suficiente stock; al registrar el pedido, calcula el total y descuenta las unidades del inventario.
 
-| Operación | Entrada | Salida |
+| Operación | Entrada (tipo Spyne) | Salida (tipo Spyne) |
 |---|---|---|
-| `registrar_pedido` | Pedido con cliente y líneas de productos | Confirmación con identificador, cliente y total |
-| `consultar_pedido` | Identificador del pedido (`Integer`) | Confirmación y datos del pedido |
+| `registrar_pedido` | `Pedido` (`ComplexModel`): `cliente: String`, `linea: Array(LineaPedido)`; `LineaPedido` (`ComplexModel`): `producto: String`, `cantidad: Integer` | `Confirmacion` (`ComplexModel`): `pedido_id: Integer`, `cliente: String`, `total: Float` |
+| `consultar_pedido` | `pedido_id: Integer` | `Confirmacion` y `Pedido` (`ComplexModel`) |
 
 El WSDL está en `http://127.0.0.1:8002/?wsdl`.
 
